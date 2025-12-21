@@ -3,9 +3,6 @@ import { Typewriter } from "react-simple-typewriter";
 import Tilt from 'react-parallax-tilt'
 import profileImage from '../../assets/image.png';
 
-
-
-
 const About = () => {
   return (
     <section
@@ -68,5 +65,4 @@ const About = () => {
     </section>
   );
 };
-
 export default About;
