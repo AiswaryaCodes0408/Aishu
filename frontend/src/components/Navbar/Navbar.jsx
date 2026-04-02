@@ -10,15 +10,31 @@ const Navbar = () => {
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsOpen(false);
+<<<<<<< HEAD
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+=======
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+>>>>>>> c812a6b172d663ae74a37e8826ad5a8d100d6778
     }
   };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      const sections = ["about", "skills", "experience", "work", "education"];
+      sections.forEach((id) => {
+        const elem = document.getElementById(id);
+        if (elem) {
+          const rect = elem.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(id);
+          }
+        }
+      });
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -33,13 +49,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled
-          ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md"
-          : "bg-transparent"
-      }`}
-    >
+    <nav className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${ isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent" }`}>
       <div className="text-white py-5 flex justify-between items-center">
         <div className="text-lg font-semibold cursor-pointer">
           <span className="text-[#8245ec]">&lt;</span>
@@ -48,27 +58,25 @@ const Navbar = () => {
           <span className="text-white">Deepan</span>
           <span className="text-[#8245ec]">&gt;</span>
         </div>
-
         <ul className="hidden md:flex space-x-8 text-gray-300">
           {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
-            >
-              <button onClick={() => handleMenuItemClick(item.id)}>
-                {item.label}
-              </button>
+            <li key={item.id} className={`cursor-pointer hover:text-[#8245ec] ${activeSection === item.id ? "text-[#8245ec]" : ""}`}>
+              <button onClick={() => handleMenuItemClick(item.id)}>{item.label} </button>
             </li>
           ))}
         </ul>
-
         <div className="hidden md:flex space-x-4">
+<<<<<<< HEAD
           <a href="https://github.com/aiswaryadeepan" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
             <FaGithub size={24} />
           </a>
           <a href="https://www.linkedin.com/in/aiswaryadeepan/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
+=======
+          <a  href="mygitlink"  target="_blank"  rel="noopener noreferrer"  className="text-gray-300 hover:text-[#8245ec]">
+            <FaGithub size={24} />
+          </a>
+          <a href="mylinkedinlink" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
+>>>>>>> c812a6b172d663ae74a37e8826ad5a8d100d6778
             <FaLinkedin size={24} />
           </a>
         </div>
@@ -85,7 +93,7 @@ const Navbar = () => {
           <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-90 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg">
             <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
               {menuItems.map((item) => (
-                <li key={item.id} className={`cursor-pointer hover:text-white ${activeSection === item.id ? "text-[#8245ec]" : ""}`}>
+                <li key={item.id} className={`cursor-pointer hover:text-white ${ activeSection === item.id ? "text-[#8245ec]" : ""}`}>
                   <button onClick={() => handleMenuItemClick(item.id)}>{item.label}</button>
                 </li>
               ))}
