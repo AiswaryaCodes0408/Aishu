@@ -10,15 +10,9 @@ const Navbar = () => {
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsOpen(false);
-<<<<<<< HEAD
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-=======
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
->>>>>>> c812a6b172d663ae74a37e8826ad5a8d100d6778
     }
   };
 
@@ -66,17 +60,10 @@ const Navbar = () => {
           ))}
         </ul>
         <div className="hidden md:flex space-x-4">
-<<<<<<< HEAD
-          <a href="https://github.com/aiswaryadeepan" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
-            <FaGithub size={24} />
-          </a>
-          <a href="https://www.linkedin.com/in/aiswaryadeepan/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
-=======
           <a  href="mygitlink"  target="_blank"  rel="noopener noreferrer"  className="text-gray-300 hover:text-[#8245ec]">
             <FaGithub size={24} />
           </a>
           <a href="mylinkedinlink" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#8245ec]">
->>>>>>> c812a6b172d663ae74a37e8826ad5a8d100d6778
             <FaLinkedin size={24} />
           </a>
         </div>
